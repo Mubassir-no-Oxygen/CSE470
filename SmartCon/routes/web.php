@@ -9,6 +9,7 @@ use App\Http\Controllers\MessageController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\WaitlistController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -36,6 +37,10 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/admin/users', [DashboardController::class, 'users'])->name('admin.users')->middleware('can:admin-only');
     Route::get('/admin/analytics', [DashboardController::class, 'analytics'])->name('admin.analytics')->middleware('can:admin-only');
+    Route::get('/waitlists', [DashboardController::class, 'waitlists'])->name('admin.waitlists');
+    Route::get('/waitlists', [WaitlistController::class, 'index'])->name('waitlists.index');
+    Route::post('/waitlists/{id}/accept', [WaitlistController::class, 'accept'])->name('waitlists.accept');
+// ...existing code...
 });
 
 Route::get('/register', [RegisteredUserController::class, 'create'])->name('register');

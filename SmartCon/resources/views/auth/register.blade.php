@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>Register</title>
-    <link rel="stylesheet" href="https://unpkg.com/@mizu/matcha/dist/matcha.min.css">
+    <link rel="stylesheet" href="https://matcha.mizu.sh/matcha.css">
 </head>
 <body>
     <h2>Register</h2>

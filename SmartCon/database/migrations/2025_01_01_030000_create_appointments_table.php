@@ -11,8 +11,8 @@ return new class extends Migration {
             $table->foreignId('faculty_id')->constrained('users')->cascadeOnDelete();
             $table->foreignId('student_id')->constrained('users')->cascadeOnDelete();
             $table->foreignId('availability_id')->nullable()->constrained('availabilities')->nullOnDelete();
-            $table->timestamp('start');
-            $table->timestamp('end');
+            $table->timestamp('start')->nullable();
+            $table->timestamp('end')->nullable();
             $table->string('status')->default('pending');
             $table->string('notes')->nullable();
             $table->timestamps();

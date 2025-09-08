@@ -8,6 +8,7 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <style> .chat-box{height:300px;overflow:auto;border:1px solid #ccc;padding:10px;border-radius:8px;} </style>
 </head>
+@yield('Muba')
 <body class="bg-light">
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
   <div class="container">
@@ -16,7 +17,13 @@
       <ul class="navbar-nav me-auto">
         @auth
           <li class="nav-item"><a class="nav-link" href="{{ route('dashboard') }}">Dashboard</a></li>
+          @if(auth()->user()->isStudent())
           <li class="nav-item"><a class="nav-link" href="{{ route('appointments.index') }}">Appointments</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ route('admin.waitlists') }}">Waitlist</a></li>
+          @endif
+          @if(auth()->user()->isFaculty())
+          <li class="nav-item"><a class="nav-link" href="{{ route('waitlists.index') }}">Waitlists</a></li>
+          @endif
           @can('manage-courses')
           <li class="nav-item"><a class="nav-link" href="{{ route('courses.index') }}">Courses</a></li>
           @endcan

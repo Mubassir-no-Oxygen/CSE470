@@ -9,8 +9,8 @@ return new class extends Migration {
         Schema::create('availabilities', function (Blueprint $table) {
             $table->id();
             $table->foreignId('faculty_id')->constrained('users')->cascadeOnDelete();
-            $table->timestamp('start');
-            $table->timestamp('end');
+            $table->timestamp('start')->nullable();
+            $table->timestamp('end')->nullable();
             $table->string('location')->nullable();
             $table->string('notes')->nullable();
             $table->timestamps();

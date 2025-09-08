@@ -37,4 +37,8 @@ class DashboardController extends Controller
         $appointments = Appointment::selectRaw('date(start) d, count(*) c')->groupBy('d')->orderBy('d','asc')->get();
         return view('admin.analytics', compact('ratings','appointments'));
     }
+    public function waitlists()
+    {   $waitlists = \App\Models\Waitlist::with('faculty','student')->orderBy('created_at','desc')->paginate(20);
+        return view('admin.waitlists', compact('waitlists'));
+    }
 }

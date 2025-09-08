@@ -10,8 +10,8 @@ return new class extends Migration {
             $table->id();
             $table->foreignId('faculty_id')->constrained('users')->cascadeOnDelete();
             $table->foreignId('student_id')->constrained('users')->cascadeOnDelete();
-            $table->timestamp('preferred_start');
-            $table->timestamp('preferred_end');
+            $table->timestamp('preferred_start')->nullable();
+            $table->timestamp('preferred_end')->nullable();
             $table->string('note')->nullable();
             $table->string('status')->default('pending');
             $table->timestamps();
