@@ -15,7 +15,13 @@
       <form method="POST" action="{{ route('waitlists.accept', $waitlist->id) }}">
         @csrf
         <button class="btn btn-success btn-sm">Accept</button>
+        <button class="btn btn-danger btn-sm">Reject</button>
       </form>
+      <form method="POST" action="{{ route('waitlists.reject', $waitlist->id) }}">
+        @csrf
+        <button class="btn btn-danger btn-sm">Reject</button>
+      </form>
+
     </td>
   </tr>
 @endforeach

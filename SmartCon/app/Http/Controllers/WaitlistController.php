@@ -24,4 +24,14 @@ class WaitlistController extends Controller
 
         return redirect()->route('waitlists.index')->with('ok', 'Student accepted!');
     }
+    public function reject($id)
+    {
+        $waitlist = Waitlist::findOrFail($id);
+
+        // Optionally, create an appointment here
+
+        $waitlist->delete(); // Remove from waitlist
+
+        return redirect()->route('waitlists.index')->with('ok', 'Student accepted!');
+    }
 }

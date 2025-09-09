@@ -40,6 +40,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/waitlists', [DashboardController::class, 'waitlists'])->name('admin.waitlists');
     Route::get('/waitlists', [WaitlistController::class, 'index'])->name('waitlists.index');
     Route::post('/waitlists/{id}/accept', [WaitlistController::class, 'accept'])->name('waitlists.accept');
+    Route::post('/waitlists/{id}/reject', [WaitlistController::class, 'reject'])->name('waitlists.reject');
 // ...existing code...
 });
 

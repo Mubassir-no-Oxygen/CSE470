@@ -12,7 +12,6 @@
 <body class="bg-light">
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
   <div class="container">
-    <a class="navbar-brand" href="{{ url('/') }}">Scheduler</a>
     <div class="collapse navbar-collapse">
       <ul class="navbar-nav me-auto">
         @auth
@@ -34,18 +33,12 @@
           <li class="nav-item"><a class="nav-link" href="{{ route('admin.users') }}">Admin</a></li>
           <li class="nav-item"><a class="nav-link" href="{{ route('admin.analytics') }}">Analytics</a></li>
           @endcan
+        @else
+          <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Register</a></li>
         @endauth
       </ul>
       <ul class="navbar-nav">
-        @guest
-          <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
-          <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Register</a></li>
-        @else
-          <li class="nav-item"><span class="navbar-text me-2">{{ auth()->user()->name }}</span></li>
-          <li class="nav-item">
-            <form method="POST" action="{{ route('logout') }}">@csrf<button class="btn btn-sm btn-outline-light">Logout</button></form>
-          </li>
-        @endguest
       </ul>
     </div>
   </div>
