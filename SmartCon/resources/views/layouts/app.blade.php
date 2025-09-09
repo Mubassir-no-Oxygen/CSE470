@@ -22,6 +22,7 @@
           @endif
           @if(auth()->user()->isFaculty())
           <li class="nav-item"><a class="nav-link" href="{{ route('waitlists.index') }}">Waitlists</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ route('admin.waitlists') }}">Waitlist</a></li>
           @endif
           @can('manage-courses')
           <li class="nav-item"><a class="nav-link" href="{{ route('courses.index') }}">Courses</a></li>
